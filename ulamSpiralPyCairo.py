@@ -24,8 +24,7 @@ def findPrime(n):
 
 def primeList(x):
 
-    array = []
-    array.append(2)
+    array = [2]
 
     for i in range(2,x):
         addToArray = True
