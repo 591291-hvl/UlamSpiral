@@ -51,7 +51,7 @@ j = 0
 x = WIDTH//2
 y = HEIGHT//2
 
-primeArray = primeList(WIDTH*HEIGHT)
+primeArray = primeList(WIDTH*WIDTH)
 
 
 while(j < len(primeArray)):
