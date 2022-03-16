@@ -1,15 +1,15 @@
 import math
 import cairo
 
-WIDTH, HEIGHT = 1000, 1000
+WIDTH, HEIGHT = 3840, 2160
 
 surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, WIDTH)
 ctx = cairo.Context(surface)
 
-ctx.set_source_rgba(1, 1, 1, 1) 
+ctx.set_source_rgba(0.0, 0.0, 0.0, 1) 
 ctx.rectangle(0, 0, WIDTH, WIDTH)
 ctx.fill()
-ctx.set_source_rgba(0.0, 0.0, 0.0, 1) 
+ctx.set_source_rgba(0.0, 1.0, 1.0, 1) 
 
 
 def findPrime(n):
@@ -38,7 +38,7 @@ def primeList(x):
     return array
 
 
-N = 1000
+#N = 1000
 orientation = 1
 
 totalDistanceToWrite = 0
@@ -48,17 +48,18 @@ lineIncrement = False
 i = 1
 j = 0
 
-x = N//2
-y = N//2
+x = WIDTH//2
+y = HEIGHT//2
 
-primeArray = primeList(N*N)
+primeArray = primeList(WIDTH*HEIGHT)
 
 
 while(j < len(primeArray)):
 
     if primeArray[j] == i:
         #draw
-        ctx.arc(x,y,1,0,2*math.pi)
+        #ctx.arc(x,y,1,0,2*math.pi)
+        ctx.rectangle(x,y,1,1)
         ctx.fill()
         j += 1
 
