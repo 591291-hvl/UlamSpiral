@@ -1,7 +1,8 @@
 import math
 import cairo
 
-WIDTH, HEIGHT = 1000, 1000
+WIDTH, HEIGHT = 2000, 2000
+SIZE = 3
 
 surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
 ctx = cairo.Context(surface)
@@ -23,17 +24,17 @@ def primes_sieve(limit):
     return [i for i in primes if primes[i]==True]
 
 def draw_prime(x):
-    ctx.set_source_rgba(0.0, 1.0, 0.0, 1) 
+    ctx.set_source_rgba(0.0, 0.0, 1.0, 1) 
     xpos = WIDTH//2 + x * math.cos(x)
     ypos = HEIGHT//2 - x * math.sin(x)
-    ctx.rectangle(xpos, ypos,2,2)
+    ctx.rectangle(xpos, ypos,SIZE,SIZE)
     ctx.fill()
 
 def draw_nonPrime(x):
-    ctx.set_source_rgba(1.0, 0.0, 0.0, 1) 
+    ctx.set_source_rgba(1.0, 1.0, 0.0, 1) 
     xpos = WIDTH//2 + x * math.cos(x)
     ypos = HEIGHT//2 - x * math.sin(x)
-    ctx.rectangle(xpos, ypos,2,2)
+    ctx.rectangle(xpos, ypos,SIZE,SIZE)
     ctx.fill()
 
 
