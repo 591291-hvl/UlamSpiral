@@ -19,4 +19,4 @@ Image generated with PyCairo
 
 ![example](https://user-images.githubusercontent.com/69840782/159162302-9650fc2e-41d2-4475-b534-ef30bcdcc2e7.png)
 
-With polar cordinates
+With Polar coordinate
