@@ -2,7 +2,8 @@ import math
 import cairo
 
 WIDTH, HEIGHT = 2000, 2000
-SIZE = 3
+SIZE = 2
+NUMBER_OF_PRIMES = 1_00_000
 
 surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
 ctx = cairo.Context(surface)
@@ -25,16 +26,20 @@ def primes_sieve(limit):
 
 def draw_prime(x):
     ctx.set_source_rgba(0.0, 0.0, 1.0, 1) 
-    xpos = WIDTH//2 + x * math.cos(x)
-    ypos = HEIGHT//2 - x * math.sin(x)
-    ctx.rectangle(xpos, ypos,SIZE,SIZE)
+    radius = (x/primeArray[-1])*WIDTH
+    xpos = WIDTH//2 + radius * math.cos(x)
+    ypos = HEIGHT//2 - radius * math.sin(x)
+    ctx.arc(xpos,ypos,SIZE,0,2*math.pi)
+    #ctx.rectangle(xpos, ypos,SIZE,SIZE)
     ctx.fill()
 
 def draw_nonPrime(x):
     ctx.set_source_rgba(1.0, 1.0, 0.0, 1) 
-    xpos = WIDTH//2 + x * math.cos(x)
-    ypos = HEIGHT//2 - x * math.sin(x)
-    ctx.rectangle(xpos, ypos,SIZE,SIZE)
+    radius = (x/primeArray[-1])*WIDTH
+    xpos = WIDTH//2 + radius * math.cos(x)
+    ypos = HEIGHT//2 - radius * math.sin(x)
+    ctx.arc(xpos,ypos,SIZE,0,2*math.pi)
+    #ctx.rectangle(xpos, ypos,SIZE,SIZE)
     ctx.fill()
 
 
@@ -44,7 +49,7 @@ j = 0
 x = WIDTH//2
 y = HEIGHT//2
 
-primeArray = primes_sieve(WIDTH*WIDTH)
+primeArray = primes_sieve(NUMBER_OF_PRIMES)
 
 print("Primes found")
 
@@ -53,8 +58,8 @@ while(j < len(primeArray)):
     if primeArray[j] == i:
         draw_prime(i)
         j += 1
-    else:
-        draw_nonPrime(i)
+    #else:
+    #   draw_nonPrime(i)
     
 
     i+= 1
