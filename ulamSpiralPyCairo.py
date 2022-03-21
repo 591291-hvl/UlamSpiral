@@ -1,5 +1,6 @@
 import math
 import cairo
+import numpy
 
 WIDTH, HEIGHT = 3000, 3000
 
@@ -9,18 +10,16 @@ ctx = cairo.Context(surface)
 ctx.set_source_rgba(0.0, 0.0, 0.0, 1) 
 ctx.rectangle(0, 0, WIDTH, HEIGHT)
 ctx.fill()
-ctx.set_source_rgba(0.0, 1.0, 0.0, 1) 
+ctx.set_source_rgba(0.0, 1.0, 1.0, 1) 
 
-def primes_sieve(limit):
-    limitn = limit+1
-    primes = dict()
-    for i in range(2, limitn): primes[i] = True
-
-    for i in primes:
-        factors = range(i,limitn, i)
-        for f in factors[1:]:
-            primes[f] = False
-    return [i for i in primes if primes[i]==True]
+#sieve of eratosthenes
+def primes_sieve(n):
+    flags = numpy.ones(n, dtype=bool)
+    flags[0] = flags[1] = False
+    for i in range(2, n):
+        if flags[i]:
+            flags[i*i::i] = False
+    return numpy.flatnonzero(flags)
 
 def findPrime(n):
     numberOfDividable = 0
