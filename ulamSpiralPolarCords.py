@@ -3,9 +3,9 @@ import cairo
 import numpy
 
 #Changeable variables
-WIDTH, HEIGHT = 3840, 2160
+WIDTH, HEIGHT = 2000, 2000
 SIZE = 1
-NUMBER_OF_PRIMES = 500_000_000
+NUMBER_OF_PRIMES = 200_000_000
 
 surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
 ctx = cairo.Context(surface)
@@ -33,7 +33,7 @@ def nonPrime_color():
 
 def draw_dot(x):
     #radius scaled to how many primes
-    radius = (x/maxRad)*WIDTH
+    radius = (x/maxRad)*drawSize
     xpos = WIDTH//2 + radius * math.cos(x)
     ypos = HEIGHT//2 - radius * math.sin(x)
     ctx.arc(xpos,ypos,SIZE,0,2*math.pi)
@@ -45,6 +45,8 @@ j = 0 #Prime counter
 
 primeArray = primes_sieve_v3(NUMBER_OF_PRIMES)
 
+#Pythagorean theorem to find space to draw in
+drawSize = math.sqrt(WIDTH**2 + HEIGHT**2)
 maxRad = primeArray[-1]
 
 print("Primes found. Number of primes found: " + str(len(primeArray)))
