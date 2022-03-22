@@ -13,7 +13,7 @@ ulamSpiralPolarCords.py
 - was given as a challenge by https://github.com/BirkJohannessen/PrimeSpiral.git
 
 
-Image generated with PyCairo
+Image generated with PyCairo:
  
 ![example](https://user-images.githubusercontent.com/69840782/157932604-2bdc6fa2-4944-49dd-be3d-9b9a4eee63a6.png)
 1000x1000
@@ -27,7 +27,8 @@ Image generated with PyCairo
 3000x3000
 
 
+With Polar coordinate:
 
 ![example](https://user-images.githubusercontent.com/69840782/159162302-9650fc2e-41d2-4475-b534-ef30bcdcc2e7.png)
 
-With Polar coordinate
+
