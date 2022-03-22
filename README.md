@@ -2,11 +2,15 @@
 
 This project was originally started first semester in java, but now revived in python with a goal to generate large images. 
 
-ulamSpiralMatplotlib.py - generates live animation ulam spiral, partially scrapped because of slow speed
+ulamSpiralMatplotlib.py 
+- generates live animation ulam spiral, partially scrapped because of slow speed
 
-ulamSpiralPyCairo.py - generates images for any given size
+ulamSpiralPyCairo.py 
+- generates images for any given size
 
-ulamSpiralPolarCords.py - was given as a challenge by https://github.com/BirkJohannessen/PrimeSpiral.git
+ulamSpiralPolarCords.py 
+- generates ulam spiral for polar coordinates
+- was given as a challenge by https://github.com/BirkJohannessen/PrimeSpiral.git
 
 
 Image generated with PyCairo
